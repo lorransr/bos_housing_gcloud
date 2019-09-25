@@ -8,10 +8,12 @@ Original file is located at
 
 ## Regression Boston
 """
-
+#importando bibliotecas
 from sklearn import datasets
 from sklearn.linear_model import LinearRegression
 import pickle
+import os
+#importando dados
 boston_dataset = datasets.load_boston()
 
 #definindo variaveis
@@ -22,6 +24,7 @@ y = boston_dataset.target
 regressor = LinearRegression(normalize=True)
 regressor.fit(X,y)
 
+#criando a pasta model
+os.mkdir("model")
 #salvando o modelo
-pickle.dump(regressor,open('regressor.pickle','wb'))
-
+pickle.dump(regressor,open('model/regressor.pickle','wb'))
